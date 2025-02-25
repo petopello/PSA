@@ -1,1 +1,1 @@
-Partial Sum Accumulation algorithm: Linear-time neighbor summation in hamming pace - related post
+Partial Sum Accumulation algorithm: Linear-time neighbor summation in hamming space
