@@ -11,6 +11,7 @@ def SHN_PSA(space, q, r):
 - space = [0, 1, 2, 3, 4, 5]
 - q = [2, 3]
 - r = 1
+- return = [6, 7, 8, 12, 13, 14]
 
 Point | space | return (r<=1)
 --- | --- | --- 
