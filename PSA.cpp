@@ -8,8 +8,8 @@ void apply_diff(int shift, int group, const vector<double>& read, vector<double>
     int unshift = group - shift;
     double* pwrite   = write.data();
     const double* pread   = read.data() + shift;
-    double* end = pwrite + write.size();
-    double* block;
+    const double* end = pwrite + write.size();
+    const double* block;
     while (pwrite < end) {
         block = pwrite + unshift;
         while (pwrite < block) {*pwrite++ += *pread++;}
