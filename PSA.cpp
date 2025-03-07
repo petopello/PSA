@@ -21,7 +21,7 @@ void apply_diff(int shift, int group, const vector<double>& read, vector<double>
 }
 
 vector<double> SHN_PSA(const vector<double>& space, const vector<int>& q, int r){
-    //restrictions
+    //restrictions(space, q, r)
     int prod_q = 1; for (int val : q){prod_q*=val;}
     if (space.size() != prod_q){throw invalid_argument("len(space) == prod(q)");}
     if (q.size() < r){throw invalid_argument("0 <= r <= len(q)");}
@@ -34,13 +34,13 @@ vector<double> SHN_PSA(const vector<double>& space, const vector<int>& q, int r)
         for(int n = q[i], j = 0; n > 0; --n, ++j){base[q.size()-1-i][j]=n*cumprod;}
         cumprod*=q[i];
     }
-    //PSA
+    //PSA(space, base, r)
     vector<double> sum = space;
     vector<double> aux(space.size());
-    vector<vector<double>> acum(q.size(), space);
+    vector<vector<double>> acum(base.size(), space);
     for(int n=0; n<r; ++n){
         fill(aux.begin(), aux.end(), 0.0);
-        for(int i=n; i<q.size(); ++i){
+        for(int i=n; i<base.size(); ++i){
             for(int k=1; k<base[i].size(); ++k){
                 apply_diff(base[i][k], base[i][0], acum[i-n], aux);
             }
