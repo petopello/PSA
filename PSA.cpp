@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-//basic transformation, same result as using numpy functions reshape+roll+flatten
+//basic transformation (oscillating shift), same result as using numpy functions reshape+roll+flatten
 void apply_diff(int shift, int group, const vector<double>& read, vector<double>& write) {
     int unshift = group - shift;
     double* pwrite   = write.data();
